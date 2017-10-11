@@ -1,0 +1,34 @@
+//Singleton design
+package parkingLotSystem;
+
+import java.util.HashSet;
+
+public class ParkingLot {
+
+	private static ParkingLot _parkingLot;
+	private HashSet<Vehicle> vehicleParkingSpots = new HashSet<Vehicle>();
+	private int spotNumber;
+
+	public ParkingLot() {}
+
+	public static ParkingLot createParkingLot() {
+		if(_parkingLot == null) {
+			_parkingLot = new ParkingLot();
+			System.out.println("A parkingLot is created");
+		} else {
+			System.out.println("A parkingLot already exists, no need for a new one.");
+		}
+		return _parkingLot;
+	}
+
+	public HashSet<Vehicle> getVehicleParkingSpots() {
+		return vehicleParkingSpots;
+	}
+
+	/*
+	public void setVehicleParkingSpots(HashSet<Vehicle> vehicleParkingSpots) {
+		this.vehicleParkingSpots = vehicleParkingSpots;
+
+	}*/
+
+}

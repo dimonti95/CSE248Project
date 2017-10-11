@@ -1,0 +1,25 @@
+package parkingLotSystem;
+
+public class Car extends Vehicle{
+
+	public static double _hourlyRate = 25;
+
+	public Car(String licensePlate, double requestedParkingTime) {
+		this.licensePlate = licensePlate;
+		this.requestedParkingTime = requestedParkingTime;
+	}
+
+	@Override
+	public String toString() {
+		return "License Plate # " + licensePlate + " (Car)";
+	}
+
+	@Override
+	public double calculateBill() {
+		this.calculatedBill = _hourlyRate*this.requestedParkingTime;
+		return calculatedBill;
+	}
+
+
+
+}

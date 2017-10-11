@@ -1,0 +1,16 @@
+package parkingLotSystem;
+
+public class Truck extends Vehicle{
+
+	public Truck(String licensePlate) {
+		this.licensePlate = licensePlate;
+	}
+
+	@Override
+	public String toString() {
+		return "Truck: License plate # " + licensePlate;
+	}
+
+
+
+}

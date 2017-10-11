@@ -1,0 +1,11 @@
+package parkingLotSystem;
+
+public abstract class Vehicle {
+
+	public String licensePlate;
+	public double calculatedBill;
+	public double requestedParkingTime;
+
+	public abstract double calculateBill();
+
+}
