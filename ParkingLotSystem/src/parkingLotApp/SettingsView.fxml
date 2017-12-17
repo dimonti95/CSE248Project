@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="parkingLotApp.SettingsController">
+   <center>
+      <GridPane hgap="15.0" vgap="15.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="131.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.0" minWidth="10.0" prefWidth="437.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="0.0" prefWidth="66.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Total Parking Spots:" GridPane.rowIndex="2" />
+            <Label GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Hourly Car Rate:" />
+            <Label text="Hourly Truck Rate:" GridPane.rowIndex="1" />
+            <Slider fx:id="carHourlyRateSlider" majorTickUnit="5.0" max="50.0" min="1.0" minorTickCount="5" onMouseDragged="#carSliderClicked" showTickLabels="true" showTickMarks="true" value="15.0" GridPane.columnIndex="1">
+               <effect>
+                  <DropShadow color="#bbbbbb" />
+               </effect></Slider>
+            <Slider fx:id="truckHourlyRateSlider" blockIncrement="0.0" majorTickUnit="5.0" max="50.0" min="1.0" minorTickCount="5" onMouseDragged="#truckSliderClicked" showTickLabels="true" showTickMarks="true" value="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <effect>
+                  <DropShadow color="#bbbbbb" />
+               </effect></Slider>
+            <GridPane GridPane.columnIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextArea fx:id="carHourlyRateTextArea" maxHeight="40.0" maxWidth="55.0" minHeight="40.0" minWidth="55.0" prefHeight="40.0" prefWidth="55.0" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextArea fx:id="truckHourlyRateTextArea" maxHeight="40.0" maxWidth="55.0" minHeight="40.0" minWidth="55.0" prefHeight="40.0" prefWidth="55.0" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="164.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="231.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="59.0" minHeight="0.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="37.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane hgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="79.0" minWidth="10.0" prefWidth="33.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="133.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="28.0" minHeight="7.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="26.0" minHeight="0.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button maxHeight="25.0" maxWidth="27.0" minHeight="25.0" minWidth="27.0" mnemonicParsing="false" onAction="#totalSpotsIncremented" prefHeight="25.0" prefWidth="27.0" text="+" />
+                        <Button maxHeight="25.0" maxWidth="27.0" minHeight="25.0" minWidth="27.0" mnemonicParsing="false" onAction="#totalSpotsDecremented" prefHeight="25.0" prefWidth="27.0" text="-" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="totalParkingSpotsTextArea" editable="false" maxWidth="41.0" minWidth="41.0" prefWidth="41.0" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="218.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="182.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </bottom>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</BorderPane>

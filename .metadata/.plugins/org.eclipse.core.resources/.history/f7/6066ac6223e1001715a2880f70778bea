@@ -1,0 +1,55 @@
+package parkingLotApp;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
+import parkingLotModel.Car;
+import parkingLotModel.ParkingLot;
+import parkingLotModel.Truck;
+
+public class SettingsController implements Initializable{
+
+	@FXML private Slider carHourlyRateSlider = new Slider();
+	@FXML private Slider truckHourlyRateSlider = new Slider();
+	@FXML private Slider totalParkingSpotsSlider = new Slider();
+	@FXML private TextArea carHourlyRateTextArea = new TextArea();
+	@FXML private TextArea truckHourlyRateTextArea = new TextArea();
+	@FXML private TextArea totalParkingSpotsTextArea = new TextArea();
+
+	public void carSliderClicked(){
+		int carHourlyRate =  (int) carHourlyRateSlider.getValue();
+		Car._hourlyRate = carHourlyRate;
+		carHourlyRateTextArea.setText(Integer.toString(carHourlyRate));
+	}
+
+	public void truckSliderClicked(){
+		int truckHourlyRate = (int) truckHourlyRateSlider.getValue();
+		Truck._hourlyRate = truckHourlyRate;
+		truckHourlyRateTextArea.setText(Integer.toString(truckHourlyRate));
+		//totalParkingSpotsSlider.getValue();
+	}
+
+	public void totalSpotSliderClicked(){
+		int totalParkingSpots = (int) totalParkingSpotsSlider.getValue();
+		ParkingLot.totalParkingSpots = totalParkingSpots;
+		totalParkingSpotsTextArea.setText(Integer.toString(ParkingLot.totalParkingSpots));
+		checkNumberOfSpotsInUse(totalParkingSpots); // TEST
+	}
+
+		public void checkNumberOfSpotsInUse(int newTotalSpotsValue){ // TEST
+			if(ParkingLot.totalSpotsInUse > newTotalSpotsValue){
+				AlertWindow.displayInputAlertBox("Error", "Total parking spots in use cannot exceed \n total parking spots.");
+			}
+		}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		carHourlyRateTextArea.setText(Integer.toString(Car._hourlyRate));
+		truckHourlyRateTextArea.setText(Integer.toString(Truck._hourlyRate));
+		totalParkingSpotsTextArea.setText(Integer.toString(ParkingLot.totalParkingSpots));
+	}
+
+}
